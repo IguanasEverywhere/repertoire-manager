@@ -1,24 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Repertoire Manager</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="index.js" defer></script>
-  </head>
-  <body>
-    <header>
-      <h1>Repertoire Manager</h1>
-    </header>
-    <main>
-      <div id="form-area">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Repertoire Manager</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="index.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <h1>Repertoire Manager</h1>
+  </header>
+  <main>
+    <div id="navigation-area">
+      <div id="initial-nav">
         <h3>What Would You Like To Do?</h3>
         <div id="first-buttons">
-          <button>Add A Piece</button>
-          <button>Retrieve Pieces</button>
+          <button id="main-add-btn">Add A Piece</button>
+          <button id="main-retrieve-btn">Retrieve Pieces</button>
         </div>
       </div>
-      <div id="rep-listing">Listing of Pieces goes here</div>
-    </main>
-  </body>
+      <div id="add-piece-form" style="display: none">
+        <form>
+          <input type="text" id="piece-title" placeholder="Title Of Piece" />
+          <input type="text" id="composer" placeholder="Composer" />
+          <select id="instrument">
+            <option value="flute">Flute</option>
+            <option value="oboe">Oboe</option>
+            <option value="clarinet">Clarinet</option>
+            <option value="Bassoon">Bassoon</option>
+            <option value="trumpet">Trumpet</option>
+            <option value="horn">French Horn</option>
+            <option value="tuba">Tuba</option>
+            <option value="trombone">Trombone</option>
+            <option value="violin">Violin</option>
+            <option value="viola">Viola</option>
+            <option value="cello">Cello</option>
+            <option value="bass">Bass</option>
+            <option value="voice">Voice</option>
+          </select>
+          <input type="submit" value="Add Piece To Rep List"></submit>
+        </form>
+      </div>
+      <div id="retrieve-form" style="display: none">
+        <form>
+          <input type="text" id="retrieve-composer-query" placeholder="Composer Name" />
+          <select id="search-by-instrument">
+            <option value="flute">Flute</option>
+            <option value="oboe">Oboe</option>
+            <option value="clarinet">Clarinet</option>
+            <option value="Bassoon">Bassoon</option>
+            <option value="trumpet">Trumpet</option>
+            <option value="horn">French Horn</option>
+            <option value="tuba">Tuba</option>
+            <option value="trombone">Trombone</option>
+            <option value="violin">Violin</option>
+            <option value="viola">Viola</option>
+            <option value="cello">Cello</option>
+            <option value="bass">Bass</option>
+            <option value="voice">Voice</option>
+          </select>
+          <input type="submit" value="Search By Composer"></submit>
+        </form>
+      </div>
+    </div>
+
+    <div id="rep-listing">Listing of Pieces goes here</div>
+  </main>
+</body>
+
 </html>
