@@ -1,0 +1,34 @@
+{
+  "pieces": [
+    {
+      "id": 1,
+      "composer": "Beethoven",
+      "title": "Sonata no. 2. in G minor, op.5 no. 2",
+      "instrument": "cello"
+    },
+    {
+      "id": 2,
+      "composer": "Brahms",
+      "title": "Sonata no. 3 in D minor, op. 108",
+      "instrument": "violin"
+    },
+    {
+      "id": 3,
+      "composer": "Elgar",
+      "title": "Concerto in E minor, op. 85",
+      "instrument": "cello"
+    },
+    {
+      "id": 4,
+      "composer": "Beethoven",
+      "title": "Sonata in F major, op. 17",
+      "instrument": "horn"
+    },
+    {
+      "id": 5,
+      "composer": "Schumann",
+      "title": "Kennst du das Land",
+      "instrument": "voice"
+    }
+  ]
+}
