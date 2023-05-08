@@ -29,6 +29,12 @@
       "composer": "Schumann",
       "title": "Kennst du das Land",
       "instrument": "voice"
+    },
+    {
+      "composer": "Tchaikovsky",
+      "title": "Rococo Variations",
+      "instrument": "cello",
+      "id": 6
     }
   ]
 }

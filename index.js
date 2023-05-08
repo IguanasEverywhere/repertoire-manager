@@ -8,10 +8,20 @@ const retrieveForm = document.querySelector('#retrieve-form');
 const addPieceForm = document.querySelector('#add-piece-form');
 let pieces;
 
+// FETCH DATA FROM DB AND PUT INTO GLOBAL VARIABLE
+fetch('http://localhost:3000/pieces')
+  .then(res => res.json())
+  .then(data => handleData(data));
+
+const handleData = (data) => {
+  pieces = data;
+  console.log('here are your pieces', pieces)
+}
+
 // INITIAL LISTENERS
 mainAddBtn.addEventListener('click', () => {
   initialNav.style.display = 'none';
-  addPieceFormArea.style.display='flex';
+  addPieceFormArea.style.display = 'flex';
 
 })
 
@@ -21,23 +31,27 @@ mainRetrieveBtn.addEventListener('click', () => {
 
 })
 
-// FETCH DATA FROM DB AND PUT INTO GLOBAL VARIABLE
-fetch('http://localhost:3000/pieces')
-.then(res => res.json())
-.then(data => handleData(data));
-
-const handleData = (data) => {
-  pieces = data;
-  console.log('here are your pieces', pieces)
-}
-
-
 addPieceForm.addEventListener('submit', (e) => {
   e.preventDefault();
   console.log('submitted');
   const titleField = document.querySelector('#piece-title');
   const composerField = document.querySelector('#composer');
   const instrumentSelection = document.querySelector('#instrument');
-  console.log(titleField.value, composerField.value, instrumentSelection.value)
-})
+  // console.log(titleField.value, composerField.value, instrumentSelection.value)
+  fetch('http://localhost:3000/pieces', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json'
+    },
+    body: JSON.stringify({
+      composer: composerField.value,
+      title: titleField.value,
+      instrument: instrumentSelection.value
+    })
+  })
+  .then(res => res.json())
+  .then(data => console.log(data))  // here we can give a success message and reset the input fields
+
+});
 
