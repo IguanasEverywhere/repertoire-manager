@@ -3,7 +3,7 @@
     {
       "id": 1,
       "composer": "Beethoven",
-      "title": "Sonata no. 2. in G minor, op.5 no. 2",
+      "title": "Sonata no. 2. in G minor, op. 5 no. 2",
       "instrument": "cello"
     },
     {
@@ -35,6 +35,12 @@
       "title": "Rococo Variations",
       "instrument": "cello",
       "id": 6
+    },
+    {
+      "composer": "Pills",
+      "title": "Sonata",
+      "instrument": "trumpet",
+      "id": 7
     }
   ]
 }

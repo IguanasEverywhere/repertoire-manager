@@ -2,3 +2,7 @@
   border: 1px solid black;
   height: 15vh;
 }
+
+.piece-card {
+  border: 2px solid blue;
+}
