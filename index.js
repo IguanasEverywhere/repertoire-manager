@@ -8,7 +8,7 @@ const retrieveForm = document.querySelector('#retrieve-form');
 const addPieceForm = document.querySelector('#add-piece-form');
 const listAllBtn = document.querySelector('#main-retrieve-all-btn');
 const repListing = document.querySelector('#rep-listing');
-let pieces;
+let allPieces;
 
 // FETCH DATA FROM DB AND PUT INTO GLOBAL VARIABLE
 const retrievePiecesFromDb = () => {
@@ -17,10 +17,9 @@ const retrievePiecesFromDb = () => {
     .then(data => handleData(data));
 
   const handleData = (data) => {
-    pieces = data;
-    console.log('here are your pieces', pieces)
+    allPieces = data;
   }
-  return pieces; // I'm not crazy about this global variable, will consult with teacher about if this is the best way to do this
+  return allPieces;
 }
 retrievePiecesFromDb();
 
@@ -38,26 +37,32 @@ mainRetrieveBtn.addEventListener('click', () => {
 
 listAllBtn.addEventListener('click', () => {
   let allPieces = retrievePiecesFromDb();
-  allPieces.forEach(piece => {
-    const pieceCard = document.createElement('div');
+  displayPieces(allPieces);
+})
 
-    const pieceTitle = document.createElement('p');
-    pieceTitle.textContent = piece.title;
+// DISPLAY PIECES ON DOM
+const displayPieces = (pieces) => {
+
+  pieces.forEach(piece => {
+    const pieceCard = document.createElement('div');
 
     const pieceComposer = document.createElement('p');
     pieceComposer.textContent = piece.composer;
+
+    const pieceTitle = document.createElement('p');
+    pieceTitle.textContent = piece.title;
 
     const pieceInstrument = document.createElement('p');
     pieceInstrument.textContent = piece.instrument;
 
     pieceCard.classList.add('piece-card');
-    pieceCard.append(pieceTitle);
     pieceCard.append(pieceComposer);
+    pieceCard.append(pieceTitle);
     pieceCard.append(pieceInstrument);
 
     repListing.append(pieceCard);
   })
-})
+}
 
 
 

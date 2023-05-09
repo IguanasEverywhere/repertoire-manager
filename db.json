@@ -32,15 +32,21 @@
     },
     {
       "composer": "Tchaikovsky",
-      "title": "Rococo Variations",
+      "title": "Rococo Variations, op. 33",
       "instrument": "cello",
       "id": 6
     },
     {
       "composer": "Pills",
-      "title": "Sonata",
+      "title": "Sonata For Trumpet & Piano",
       "instrument": "trumpet",
       "id": 7
+    },
+    {
+      "composer": "Shostakovich",
+      "title": "Sonata Op. 134",
+      "instrument": "violin",
+      "id": 8
     }
   ]
 }
