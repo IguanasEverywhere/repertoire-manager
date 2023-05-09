@@ -4,10 +4,12 @@ const mainAddBtn = document.querySelector('#main-add-btn');
 const mainRetrieveBtn = document.querySelector('#main-retrieve-btn');
 const initialNav = document.querySelector('#initial-nav');
 const addPieceFormArea = document.querySelector('#add-piece-form-area');
-const retrieveForm = document.querySelector('#retrieve-form');
+const retrieveFormArea = document.querySelector('#retrieve-form-area');
 const addPieceForm = document.querySelector('#add-piece-form');
 const listAllBtn = document.querySelector('#main-retrieve-all-btn');
 const repListing = document.querySelector('#rep-listing');
+const searchForm = document.querySelector('#search-form');
+
 let allPieces;
 
 // FETCH DATA FROM DB AND PUT INTO GLOBAL VARIABLE
@@ -26,22 +28,36 @@ retrievePiecesFromDb();
 
 // INITIAL LISTENERS
 mainAddBtn.addEventListener('click', () => {
+  repListing.innerHTML = '';
   initialNav.style.display = 'none';
   addPieceFormArea.style.display = 'flex';
 });
 
 mainRetrieveBtn.addEventListener('click', () => {
+  repListing.innerHTML = '';
   initialNav.style.display = 'none';
-  retrieveForm.style.display = 'flex';
+  retrieveFormArea.style.display = 'flex';
 });
 
 listAllBtn.addEventListener('click', () => {
   let allPieces = retrievePiecesFromDb();
   displayPieces(allPieces);
-})
+});
+
+searchForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const retrieveComposerQuery = document.querySelector('#retrieve-composer-query');
+  filterPiecesByComposer(retrieveComposerQuery.value);
+});
+
+const filterPiecesByComposer = (composerName) => {
+  let piecesByComposer = allPieces.filter(piece => piece.composer === composerName);
+  displayPieces(piecesByComposer);
+}
 
 // DISPLAY PIECES ON DOM
 const displayPieces = (pieces) => {
+  repListing.innerHTML = '';
 
   pieces.forEach(piece => {
     const pieceCard = document.createElement('div');
@@ -63,8 +79,6 @@ const displayPieces = (pieces) => {
     repListing.append(pieceCard);
   })
 }
-
-
 
 // HANDLE SUBMISSION OF NEW PIECE
 addPieceForm.addEventListener('submit', (e) => {
@@ -88,9 +102,4 @@ addPieceForm.addEventListener('submit', (e) => {
     .then(res => res.json())
     .then(data => console.log(data))  // here we can give a success message and reset the input fields
 });
-
-retrieveForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  console.log(e)
-})
 
