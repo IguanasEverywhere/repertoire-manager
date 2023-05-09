@@ -44,14 +44,25 @@
           <input type="submit" value="Add Piece To Rep List" />
         </form>
       </div>
+
       <div id="retrieve-form-area" style="display: none">
-        <form id="search-form">
+        <div id="choose-search-opt">
+          <h3>How would you like to search?</h3>
+          <button id="by-composer-btn">By Composer</button>
+          <button id="by-instrument-btn">By Instrument</button>
+        </div>
+        <form id="search-composer-form">
           <input type="text" id="retrieve-composer-query" placeholder="Composer Name" />
+          <input type="submit" value="Search By Composer" />
+        </form>
+
+        <form id="search-by-instrument">
           <select id="search-by-instrument">
             <option value="flute">Flute</option>
             <option value="oboe">Oboe</option>
             <option value="clarinet">Clarinet</option>
             <option value="Bassoon">Bassoon</option>
+            <option value="Saxophone">Saxophone</option>
             <option value="trumpet">Trumpet</option>
             <option value="horn">French Horn</option>
             <option value="tuba">Tuba</option>
@@ -62,9 +73,9 @@
             <option value="bass">Bass</option>
             <option value="voice">Voice</option>
           </select>
-          <input type="submit" value="Search By Composer" />
         </form>
       </div>
+
     </div>
 
     <div id="rep-listing">Listing of Pieces goes here</div>

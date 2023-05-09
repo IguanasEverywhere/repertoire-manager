@@ -8,7 +8,8 @@ const retrieveFormArea = document.querySelector('#retrieve-form-area');
 const addPieceForm = document.querySelector('#add-piece-form');
 const listAllBtn = document.querySelector('#main-retrieve-all-btn');
 const repListing = document.querySelector('#rep-listing');
-const searchForm = document.querySelector('#search-form');
+const searchComposerForm = document.querySelector('#search-composer-form');
+const searchByInstrument = document.querySelector('#search-by-instrument');
 
 let allPieces;
 
@@ -37,6 +38,23 @@ mainRetrieveBtn.addEventListener('click', () => {
   repListing.innerHTML = '';
   initialNav.style.display = 'none';
   retrieveFormArea.style.display = 'flex';
+  searchComposerForm.style.display = 'none';
+  searchByInstrument.style.display = 'none';
+  const byComposerBtn = document.querySelector('#by-composer-btn');
+  const byInstrumentBtn = document.querySelector('#by-instrument-btn');
+  const chooseSearchOpt = document.querySelector('#choose-search-opt');
+  byComposerBtn.addEventListener('click', () => {
+    chooseSearchOpt.style.display = 'none';
+    searchByInstrument.style.display = 'none';
+    searchComposerForm.style.display='flex';
+  });
+  byInstrumentBtn.addEventListener('click', () => {
+    chooseSearchOpt.style.display = 'none';
+    searchComposerForm.style.display = 'none';
+    searchByInstrument.style.display='flex';
+  })
+
+
 });
 
 listAllBtn.addEventListener('click', () => {
@@ -44,7 +62,7 @@ listAllBtn.addEventListener('click', () => {
   displayPieces(allPieces);
 });
 
-searchForm.addEventListener('submit', (e) => {
+searchComposerForm.addEventListener('submit', (e) => {
   e.preventDefault();
   const retrieveComposerQuery = document.querySelector('#retrieve-composer-query');
   filterPiecesByComposer(retrieveComposerQuery.value);
