@@ -38,13 +38,15 @@ mainAddBtn.addEventListener('click', () => {
 
 mainRetrieveBtn.addEventListener('click', () => {
   repListing.innerHTML = '';
+  const chooseSearchOpt = document.querySelector('#choose-search-opt');
   initialNav.style.display = 'none';
   retrieveFormArea.style.display = 'flex';
+  chooseSearchOpt.style.display = 'flex';
   searchComposerForm.style.display = 'none';
   searchByInstrument.style.display = 'none';
   const byComposerBtn = document.querySelector('#by-composer-btn');
   const byInstrumentBtn = document.querySelector('#by-instrument-btn');
-  const chooseSearchOpt = document.querySelector('#choose-search-opt');
+
   byComposerBtn.addEventListener('click', () => {
     chooseSearchOpt.style.display = 'none';
     searchByInstrument.style.display = 'none';
@@ -166,9 +168,7 @@ const deletePiece = (piece) => {
   backdrop.classList.add('backdrop');
   body.append(backdrop);
 
-
   repListing.append(confirmDeleteDiv);
-
 
   confirmYesBtn.addEventListener('click', () => {
     confirmDeleteDiv.remove();
@@ -189,7 +189,7 @@ const deletePieceFromServer = (pieceToDelete) => {
       'Content-Type': 'application/json'
     }
   })
-  .then(res => res.json())
-  .then(data => console.log(data));
+    .then(res => res.json())
+    .then(data => console.log(data));
 }
 

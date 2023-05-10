@@ -53,6 +53,12 @@
       "title": "Concerto in E minor",
       "instrument": "cello",
       "id": 11
+    },
+    {
+      "composer": "Handel",
+      "title": "Mio caro bene",
+      "instrument": "voice",
+      "id": 12
     }
   ]
 }
