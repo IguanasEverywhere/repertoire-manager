@@ -11,6 +11,7 @@ const repListing = document.querySelector('#rep-listing');
 const searchComposerForm = document.querySelector('#search-composer-form');
 const searchByInstrument = document.querySelector('#search-by-instrument');
 const searchByInstrumentSelector = document.querySelector('#search-by-instrument-selector');
+const backToMainBtn = document.querySelector('#back-to-main-btn');
 
 let allPieces;
 
@@ -47,20 +48,31 @@ mainRetrieveBtn.addEventListener('click', () => {
   byComposerBtn.addEventListener('click', () => {
     chooseSearchOpt.style.display = 'none';
     searchByInstrument.style.display = 'none';
-    searchComposerForm.style.display='flex';
+    searchComposerForm.style.display = 'flex';
   });
   byInstrumentBtn.addEventListener('click', () => {
     chooseSearchOpt.style.display = 'none';
     searchComposerForm.style.display = 'none';
-    searchByInstrument.style.display='flex';
+    searchByInstrument.style.display = 'flex';
   })
 });
 
+backToMainBtn.addEventListener('click', () => {
+  repListing.innerHTML = '';
+  initialNav.style.display = 'flex';
+  retrieveFormArea.style.display = 'none';
+  searchComposerForm.style.display = 'none';
+  searchByInstrument.style.display = 'none';
+  addPieceFormArea.style.display = 'none';
+})
+
 listAllBtn.addEventListener('click', () => {
-  let allPieces = retrievePiecesFromDb();
+  allPieces = retrievePiecesFromDb();
   displayPieces(allPieces);
 });
 
+
+// SEARCH AND FILTER HANDLERS
 searchComposerForm.addEventListener('submit', (e) => {
   e.preventDefault();
   const retrieveComposerQuery = document.querySelector('#retrieve-composer-query');
@@ -80,8 +92,6 @@ const filterPiecesByInstrument = (instrumentName) => {
   let piecesByInstrument = allPieces.filter(piece => piece.instrument === instrumentName);
   displayPieces(piecesByInstrument);
 }
-
-
 
 
 // DISPLAY PIECES ON DOM

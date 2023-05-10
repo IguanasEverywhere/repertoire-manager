@@ -53,6 +53,12 @@
       "title": "Chant de Linos",
       "instrument": "flute",
       "id": 9
+    },
+    {
+      "composer": "Hindemith",
+      "title": "Sonata",
+      "instrument": "oboe",
+      "id": 10
     }
   ]
 }
