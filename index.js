@@ -2,14 +2,15 @@
 const navigationArea = document.querySelector('#navigation-area');
 const mainAddBtn = document.querySelector('#main-add-btn');
 const mainRetrieveBtn = document.querySelector('#main-retrieve-btn');
+const listAllBtn = document.querySelector('#main-retrieve-all-btn');
 const initialNav = document.querySelector('#initial-nav');
 const addPieceFormArea = document.querySelector('#add-piece-form-area');
 const retrieveFormArea = document.querySelector('#retrieve-form-area');
 const addPieceForm = document.querySelector('#add-piece-form');
-const listAllBtn = document.querySelector('#main-retrieve-all-btn');
 const repListing = document.querySelector('#rep-listing');
 const searchComposerForm = document.querySelector('#search-composer-form');
 const searchByInstrument = document.querySelector('#search-by-instrument');
+const searchByInstrumentSelector = document.querySelector('#search-by-instrument-selector');
 
 let allPieces;
 
@@ -53,8 +54,6 @@ mainRetrieveBtn.addEventListener('click', () => {
     searchComposerForm.style.display = 'none';
     searchByInstrument.style.display='flex';
   })
-
-
 });
 
 listAllBtn.addEventListener('click', () => {
@@ -72,6 +71,18 @@ const filterPiecesByComposer = (composerName) => {
   let piecesByComposer = allPieces.filter(piece => piece.composer === composerName);
   displayPieces(piecesByComposer);
 }
+
+searchByInstrumentSelector.addEventListener('change', () => {
+  filterPiecesByInstrument(searchByInstrumentSelector.value);
+})
+
+const filterPiecesByInstrument = (instrumentName) => {
+  let piecesByInstrument = allPieces.filter(piece => piece.instrument === instrumentName);
+  displayPieces(piecesByInstrument);
+}
+
+
+
 
 // DISPLAY PIECES ON DOM
 const displayPieces = (pieces) => {
