@@ -7,12 +7,6 @@
       "instrument": "cello"
     },
     {
-      "id": 2,
-      "composer": "Brahms",
-      "title": "Sonata no. 3 in D minor, op. 108",
-      "instrument": "violin"
-    },
-    {
       "id": 4,
       "composer": "Beethoven",
       "title": "Sonata in F major, op. 17",

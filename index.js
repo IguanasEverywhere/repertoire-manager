@@ -161,14 +161,23 @@ const deletePiece = (piece) => {
   confirmDeleteDiv.append(confirmYesBtn);
   confirmDeleteDiv.append(confirmNoBtn);
 
+  const body = document.getElementsByTagName('body')[0];
+  const backdrop = document.createElement('div');
+  backdrop.classList.add('backdrop');
+  body.append(backdrop);
+
+
   repListing.append(confirmDeleteDiv);
+
 
   confirmYesBtn.addEventListener('click', () => {
     confirmDeleteDiv.remove();
+    backdrop.remove();
     deletePieceFromServer(piece);
   });
 
   confirmNoBtn.addEventListener('click', () => {
+    backdrop.remove();
     confirmDeleteDiv.remove();
   });
 }

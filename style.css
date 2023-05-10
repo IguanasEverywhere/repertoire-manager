@@ -3,18 +3,30 @@
   height: 15vh;
 }
 
+body {
+  height: 100%;
+}
+
 .piece-card {
   border: 2px solid blue;
 }
 
 .confirm-delete-div {
   border: 1px solid red;
-  position: absolute;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
-  top: 50vh;
+  position: fixed;
   z-index: 10;
-  width: 50vw;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.backdrop {
+  background-color: black;
+  position: fixed;
+  left: 0;
+  top: 0;
+  min-height: 100vh;
+  width: 100vw;
+  opacity: 0.5;
+  z-index: 5;
 }
