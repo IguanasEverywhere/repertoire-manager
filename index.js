@@ -115,6 +115,10 @@ const displayPieces = (pieces) => {
     pieceCard.append(pieceTitle);
     pieceCard.append(pieceInstrument);
 
+    pieceCard.addEventListener('click', () => {
+      deletePiece(piece);
+    });
+
     repListing.append(pieceCard);
   })
 }
@@ -141,4 +145,42 @@ addPieceForm.addEventListener('submit', (e) => {
     .then(res => res.json())
     .then(data => console.log(data))  // here we can give a success message and reset the input fields
 });
+
+// DELETE A PIECE
+const deletePiece = (piece) => {
+  const confirmDeleteDiv = document.createElement('div');
+  confirmDeleteDiv.classList.add('confirm-delete-div');
+  const confirmDeleteMsg = document.createElement('p');
+  confirmDeleteMsg.textContent = 'Are you sure you want to delete this piece?';
+  const confirmYesBtn = document.createElement('button');
+  confirmYesBtn.textContent = 'YES';
+  const confirmNoBtn = document.createElement('button');
+  confirmNoBtn.textContent = 'NO';
+
+  confirmDeleteDiv.append(confirmDeleteMsg);
+  confirmDeleteDiv.append(confirmYesBtn);
+  confirmDeleteDiv.append(confirmNoBtn);
+
+  repListing.append(confirmDeleteDiv);
+
+  confirmYesBtn.addEventListener('click', () => {
+    confirmDeleteDiv.remove();
+    deletePieceFromServer(piece);
+  });
+
+  confirmNoBtn.addEventListener('click', () => {
+    confirmDeleteDiv.remove();
+  });
+}
+
+const deletePieceFromServer = (pieceToDelete) => {
+  fetch(`http://localhost:3000/pieces/${pieceToDelete.id}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+  .then(res => res.json())
+  .then(data => console.log(data));
+}
 

@@ -13,12 +13,6 @@
       "instrument": "violin"
     },
     {
-      "id": 3,
-      "composer": "Elgar",
-      "title": "Concerto in E minor, op. 85",
-      "instrument": "cello"
-    },
-    {
       "id": 4,
       "composer": "Beethoven",
       "title": "Sonata in F major, op. 17",
@@ -59,6 +53,12 @@
       "title": "Sonata",
       "instrument": "oboe",
       "id": 10
+    },
+    {
+      "composer": "Elgar",
+      "title": "Concerto in E minor",
+      "instrument": "cello",
+      "id": 11
     }
   ]
 }
