@@ -65,7 +65,7 @@ backToMainBtn.addEventListener('click', () => {
   retrieveFormArea.style.display = 'none';
   searchComposerForm.style.display = 'none';
   searchByInstrument.style.display = 'none';
-  addPieceFormArea.style.display = 'none';
+  addPieceFormArea.style.display = 'none'; // do this inside backtoMain fn
 })
 
 listAllBtn.addEventListener('click', () => {
@@ -152,6 +152,7 @@ const backToMain = (context, piece) => {
     let confirmSubmissionMsg = document.createElement('p');
     confirmSubmissionMsg.textContent = `${piece.title} ${context}`;
     confirmSubmissionBanner.append(confirmSubmissionMsg);
+    confirmSubmissionBanner.classList.add('confirm-submission-banner');
     repListing.append(confirmSubmissionBanner);
 
     setTimeout(() => {
