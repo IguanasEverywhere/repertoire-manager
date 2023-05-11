@@ -100,6 +100,10 @@ const filterPiecesByInstrument = (instrumentName) => {
 // DISPLAY PIECES ON DOM
 const displayPieces = (pieces) => {
   repListing.innerHTML = '';
+  const instructionMsg = document.createElement('p');
+  instructionMsg.textContent = 'Click on a piece to delete it from the database';
+  instructionMsg.classList.add('instruction-msg');
+  repListing.append(instructionMsg);
 
   pieces.forEach(piece => {
     const pieceCard = document.createElement('div');
