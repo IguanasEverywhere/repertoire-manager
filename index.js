@@ -77,20 +77,22 @@ listAllBtn.addEventListener('click', () => {
 searchComposerForm.addEventListener('submit', (e) => {
   e.preventDefault();
   const retrieveComposerQuery = document.querySelector('#retrieve-composer-query');
-  filterPiecesByComposer(retrieveComposerQuery.value);
+  filterPiecesByComposer(retrieveComposerQuery.value, retrieveComposerQuery);
 });
 
-const filterPiecesByComposer = (composerName) => {
+const filterPiecesByComposer = (composerName, retrieveComposerQuery) => {
   let piecesByComposer = allPieces.filter(piece => piece.composer === composerName);
+  retrieveComposerQuery.value = '';
   displayPieces(piecesByComposer);
 }
 
 searchByInstrumentSelector.addEventListener('change', () => {
   filterPiecesByInstrument(searchByInstrumentSelector.value);
-})
+});
 
 const filterPiecesByInstrument = (instrumentName) => {
   let piecesByInstrument = allPieces.filter(piece => piece.instrument === instrumentName);
+  searchByInstrumentSelector.value = 'choose';
   displayPieces(piecesByInstrument);
 }
 
@@ -146,6 +148,9 @@ addPieceForm.addEventListener('submit', (e) => {
     .then(res => res.json())
     .then(data => {
       allPieces.push(data);
+      titleField.value = '';
+      composerField.value = '';
+      instrumentSelection.value = 'none-selected';
     })  // here we can give a success message and reset the input fields
 });
 

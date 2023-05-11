@@ -65,6 +65,24 @@
       "title": "Sure On This Shining Night",
       "instrument": "voice",
       "id": 15
+    },
+    {
+      "composer": "Hindemith",
+      "title": "Sonata op 11 no 4",
+      "instrument": "viola",
+      "id": 16
+    },
+    {
+      "composer": "Gershwin",
+      "title": "Summertime",
+      "instrument": "voice",
+      "id": 17
+    },
+    {
+      "composer": "Schumann",
+      "title": "Romances",
+      "instrument": "oboe",
+      "id": 18
     }
   ]
 }
