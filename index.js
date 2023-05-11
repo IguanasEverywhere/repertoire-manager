@@ -122,6 +122,14 @@ const displayPieces = (pieces) => {
     pieceCard.append(pieceTitle);
     pieceCard.append(pieceInstrument);
 
+    pieceCard.addEventListener('mouseover', () => {
+      pieceCard.classList.add('highlight-green');
+    })
+
+    pieceCard.addEventListener('mouseout', () => {
+      pieceCard.classList.remove('highlight-green');
+    })
+
     pieceCard.addEventListener('click', () => {
       deletePiece(piece);
     });
