@@ -126,6 +126,28 @@ const displayPieces = (pieces) => {
   })
 }
 
+// RESET MAIN DISPLAY
+const backToMain = (context, piece) => {
+  repListing.innerHTML = '';
+  initialNav.style.display = 'flex';
+  retrieveFormArea.style.display = 'none';
+  searchComposerForm.style.display = 'none';
+  searchByInstrument.style.display = 'none';
+  addPieceFormArea.style.display = 'none';
+
+  if (context) {
+    let confirmSubmissionBanner = document.createElement('div');
+    let confirmSubmissionMsg = document.createElement('p');
+    confirmSubmissionMsg.textContent = `${piece.title} ${context}`;
+    confirmSubmissionBanner.append(confirmSubmissionMsg);
+    repListing.append(confirmSubmissionBanner);
+
+    setTimeout(() => {
+      confirmSubmissionBanner.remove();
+    }, 3000)
+  }
+}
+
 // HANDLE SUBMISSION OF NEW PIECE
 addPieceForm.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -172,6 +194,7 @@ addPieceForm.addEventListener('submit', (e) => {
       confirmAddBtn.addEventListener('click', () => {
         backdrop.remove();
         confirmAddModal.remove();
+        backToMain('Added', data);
       })
 
     })
@@ -203,6 +226,7 @@ const deletePiece = (piece) => {
     confirmDeleteDiv.remove();
     backdrop.remove();
     deletePieceFromServer(piece);
+    backToMain('Deleted', piece);
   });
 
   confirmNoBtn.addEventListener('click', () => {
