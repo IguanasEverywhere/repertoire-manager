@@ -151,7 +151,30 @@ addPieceForm.addEventListener('submit', (e) => {
       titleField.value = '';
       composerField.value = '';
       instrumentSelection.value = 'none-selected';
-    })  // here we can give a success message and reset the input fields
+
+      const confirmAddModal = document.createElement('div');
+      confirmAddModal.classList.add('confirm-delete-div'); // we'll do something more generic
+      const confirmAddMsg = document.createElement('p');
+      confirmAddMsg.textContent = 'Piece successfully added!';
+      const confirmAddBtn = document.createElement('button');
+      confirmAddBtn.textContent = 'OK';
+
+      confirmAddModal.append(confirmAddMsg);
+      confirmAddModal.append(confirmAddBtn);
+
+      const body = document.getElementsByTagName('body')[0];
+      const backdrop = document.createElement('div');
+      backdrop.classList.add('backdrop');
+      body.append(backdrop); // repeated, we can modularize this out
+
+      repListing.append(confirmAddModal);
+
+      confirmAddBtn.addEventListener('click', () => {
+        backdrop.remove();
+        confirmAddModal.remove();
+      })
+
+    })
 });
 
 // DELETE A PIECE
