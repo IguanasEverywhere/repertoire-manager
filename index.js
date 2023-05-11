@@ -17,7 +17,6 @@ let allPieces;
 
 // FETCH DATA FROM DB AND PUT INTO GLOBAL VARIABLE
 const retrievePiecesFromDb = () => {
-  console.log('retreieve happened')
   fetch('http://localhost:3000/pieces')
     .then(res => res.json())
     .then(data => handleData(data));
@@ -145,7 +144,9 @@ addPieceForm.addEventListener('submit', (e) => {
     })
   })
     .then(res => res.json())
-    .then(data => console.log(data))  // here we can give a success message and reset the input fields
+    .then(data => {
+      allPieces.push(data);
+    })  // here we can give a success message and reset the input fields
 });
 
 // DELETE A PIECE
@@ -190,6 +191,10 @@ const deletePieceFromServer = (pieceToDelete) => {
     }
   })
     .then(res => res.json())
-    .then(data => console.log('delete done'));
+    .then(data => {
+      let deletedPieceOnGlobal = allPieces.find(piece => piece.id === pieceToDelete.id);
+      let deletedPieceOnGlobalIdx = allPieces.indexOf(deletedPieceOnGlobal);
+      allPieces.splice(deletedPieceOnGlobalIdx, 1);
+    });
 }
 

@@ -53,6 +53,18 @@
       "title": "Man-Mou",
       "instrument": "Saxophone",
       "id": 13
+    },
+    {
+      "composer": "Rachmaninoff",
+      "title": "Sonata op 19",
+      "instrument": "cello",
+      "id": 14
+    },
+    {
+      "composer": "Barber",
+      "title": "Sure On This Shining Night",
+      "instrument": "voice",
+      "id": 15
     }
   ]
 }
