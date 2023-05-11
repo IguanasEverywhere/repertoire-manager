@@ -17,6 +17,7 @@ let allPieces;
 
 // FETCH DATA FROM DB AND PUT INTO GLOBAL VARIABLE
 const retrievePiecesFromDb = () => {
+  console.log('retreieve happened')
   fetch('http://localhost:3000/pieces')
     .then(res => res.json())
     .then(data => handleData(data));
@@ -69,7 +70,6 @@ backToMainBtn.addEventListener('click', () => {
 })
 
 listAllBtn.addEventListener('click', () => {
-  allPieces = retrievePiecesFromDb();
   displayPieces(allPieces);
 });
 
@@ -190,6 +190,6 @@ const deletePieceFromServer = (pieceToDelete) => {
     }
   })
     .then(res => res.json())
-    .then(data => console.log(data));
+    .then(data => console.log('delete done'));
 }
 
