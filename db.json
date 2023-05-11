@@ -71,6 +71,18 @@
       "title": "Sonata op 11 no 4",
       "instrument": "viola",
       "id": 16
+    },
+    {
+      "composer": "Clarke",
+      "title": "Sonata",
+      "instrument": "viola",
+      "id": 17
+    },
+    {
+      "composer": "Bozza",
+      "title": "Fantaisie for Bassoon and Piano",
+      "instrument": "Bassoon",
+      "id": 18
     }
   ]
 }

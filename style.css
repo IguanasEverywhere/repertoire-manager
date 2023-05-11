@@ -71,13 +71,20 @@ button, input[type='submit'] {
   cursor: pointer;
 }
 
-.confirm-delete-div {
-  border: 1px solid red;
+.confirm-delete-or-add-div {
   position: fixed;
   z-index: 10;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  background-color: #e9bb30e3;
+  padding: 25px;
+  font-family: 'Quicksand', sans-serif;
+  border-radius: 15px;
+}
+
+.confirm-delete-or-add-div > button {
+  margin: 10px;
 }
 
 .backdrop {

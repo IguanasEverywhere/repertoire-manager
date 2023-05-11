@@ -187,7 +187,7 @@ addPieceForm.addEventListener('submit', (e) => {
       instrumentSelection.value = 'none-selected';
 
       const confirmAddModal = document.createElement('div');
-      confirmAddModal.classList.add('confirm-delete-div'); // we'll do something more generic
+      confirmAddModal.classList.add('confirm-delete-or-add-div');
       const confirmAddMsg = document.createElement('p');
       confirmAddMsg.textContent = 'Piece successfully added!';
       const confirmAddBtn = document.createElement('button');
@@ -215,7 +215,7 @@ addPieceForm.addEventListener('submit', (e) => {
 // DELETE A PIECE
 const deletePiece = (piece) => {
   const confirmDeleteDiv = document.createElement('div');
-  confirmDeleteDiv.classList.add('confirm-delete-div');
+  confirmDeleteDiv.classList.add('confirm-delete-or-add-div');
   const confirmDeleteMsg = document.createElement('p');
   confirmDeleteMsg.textContent = 'Are you sure you want to delete this piece?';
   const confirmYesBtn = document.createElement('button');
