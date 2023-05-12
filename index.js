@@ -19,12 +19,7 @@ let allPieces;
 const retrievePiecesFromDb = () => {
   fetch('http://localhost:3000/pieces')
     .then(res => res.json())
-    .then(data => handleData(data));
-
-  const handleData = (data) => {
-    allPieces = data;
-  }
-  return allPieces;
+    .then(data => allPieces = data);
 }
 retrievePiecesFromDb();
 
