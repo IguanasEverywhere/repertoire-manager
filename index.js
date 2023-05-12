@@ -161,6 +161,14 @@ const backToMain = (context, piece) => {
   }
 }
 
+const createBackdrop = () => {
+  const body = document.getElementsByTagName('body')[0];
+  const backdrop = document.createElement('div');
+  backdrop.classList.add('backdrop');
+  body.append(backdrop);
+  return backdrop;
+}
+
 // HANDLE SUBMISSION OF NEW PIECE
 addPieceForm.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -197,10 +205,7 @@ addPieceForm.addEventListener('submit', (e) => {
       confirmAddModal.append(confirmAddMsg);
       confirmAddModal.append(confirmAddBtn);
 
-      const body = document.getElementsByTagName('body')[0];
-      const backdrop = document.createElement('div');
-      backdrop.classList.add('backdrop');
-      body.append(backdrop); // repeated, we can modularize this out
+      const backdrop = createBackdrop();
 
       repListing.append(confirmAddModal);
 
@@ -228,10 +233,7 @@ const deletePiece = (piece) => {
   confirmDeleteDiv.append(confirmYesBtn);
   confirmDeleteDiv.append(confirmNoBtn);
 
-  const body = document.getElementsByTagName('body')[0];
-  const backdrop = document.createElement('div');
-  backdrop.classList.add('backdrop');
-  body.append(backdrop);
+  const backdrop = createBackdrop();
 
   repListing.append(confirmDeleteDiv);
 

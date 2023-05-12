@@ -19,12 +19,6 @@
       "id": 6
     },
     {
-      "composer": "Pills",
-      "title": "Sonata For Trumpet & Piano",
-      "instrument": "trumpet",
-      "id": 7
-    },
-    {
       "composer": "Shostakovich",
       "title": "Sonata Op. 134",
       "instrument": "violin",
@@ -83,6 +77,18 @@
       "title": "Fantaisie for Bassoon and Piano",
       "instrument": "Bassoon",
       "id": 18
+    },
+    {
+      "composer": "Pilß",
+      "title": "Sonata",
+      "instrument": "trumpet",
+      "id": 19
+    },
+    {
+      "composer": "Brahms",
+      "title": "Sonata in A major",
+      "instrument": "violin",
+      "id": 20
     }
   ]
 }
