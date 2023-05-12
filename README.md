@@ -8,8 +8,8 @@ Interacting with Repertoire Manager, users can:
 * Add a new piece of music to their repertoire and store it on a local database
 * Delete a piece of music from their local repertoire database
 * Filter and display pieces from their repertoire:
- * By composer name
- * By instrument
+ - By composer name
+ - By instrument
 * Display all pieces of music in their repertoire
 
 ![](https://github.com/IguanasEverywhere/repertoire-manager/blob/main/gifs/demonstrationGif.gif)
