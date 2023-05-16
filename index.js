@@ -127,7 +127,7 @@ function buildAndAppendRepCard(piece) {
   })
 
   pieceCard.addEventListener('click', () => {
-    deletePiece(piece);
+    confirmDeletePiece(piece);
   });
 
   repListing.append(pieceCard);
@@ -218,7 +218,7 @@ function displayConfirmAddModal(addedPiece) {
 }
 
 // DELETE A PIECE
-const deletePiece = (piece) => {
+const confirmDeletePiece = (piece) => {
   const confirmDeleteDiv = document.createElement('div');
   confirmDeleteDiv.classList.add('confirm-delete-or-add-div');
   const confirmDeleteMsg = document.createElement('p');
@@ -248,6 +248,7 @@ const deletePiece = (piece) => {
     confirmDeleteDiv.remove();
   });
 }
+
 
 const deletePieceFromServer = (pieceToDelete) => {
   fetch(`http://localhost:3000/pieces/${pieceToDelete.id}`, {
