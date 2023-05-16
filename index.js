@@ -55,12 +55,7 @@ mainRetrieveBtn.addEventListener('click', () => {
 });
 
 backToMainBtn.addEventListener('click', () => {
-  repListing.innerHTML = '';
-  initialNav.style.display = 'flex';
-  retrieveFormArea.style.display = 'none';
-  searchComposerForm.style.display = 'none';
-  searchByInstrument.style.display = 'none';
-  addPieceFormArea.style.display = 'none'; // do this inside backtoMain fn
+  backToMain();
 })
 
 listAllBtn.addEventListener('click', () => {
@@ -101,36 +96,41 @@ const displayPieces = (pieces) => {
   repListing.append(instructionMsg);
 
   pieces.forEach(piece => {
-    const pieceCard = document.createElement('div');
-
-    const pieceComposer = document.createElement('p');
-    pieceComposer.textContent = piece.composer;
-
-    const pieceTitle = document.createElement('p');
-    pieceTitle.textContent = piece.title;
-
-    const pieceInstrument = document.createElement('p');
-    pieceInstrument.textContent = piece.instrument;
-
-    pieceCard.classList.add('piece-card');
-    pieceCard.append(pieceComposer);
-    pieceCard.append(pieceTitle);
-    pieceCard.append(pieceInstrument);
-
-    pieceCard.addEventListener('mouseover', () => {
-      pieceCard.classList.add('highlight-green');
-    })
-
-    pieceCard.addEventListener('mouseout', () => {
-      pieceCard.classList.remove('highlight-green');
-    })
-
-    pieceCard.addEventListener('click', () => {
-      deletePiece(piece);
-    });
-
-    repListing.append(pieceCard);
+    buildAndAppendRepCard(piece);
   })
+}
+
+// BUILD AND APPEND PIECE LISTING CARD
+function buildAndAppendRepCard(piece) {
+  const pieceCard = document.createElement('div');
+
+  const pieceComposer = document.createElement('p');
+  pieceComposer.textContent = piece.composer;
+
+  const pieceTitle = document.createElement('p');
+  pieceTitle.textContent = piece.title;
+
+  const pieceInstrument = document.createElement('p');
+  pieceInstrument.textContent = piece.instrument;
+
+  pieceCard.classList.add('piece-card');
+  pieceCard.append(pieceComposer);
+  pieceCard.append(pieceTitle);
+  pieceCard.append(pieceInstrument);
+
+  pieceCard.addEventListener('mouseover', () => {
+    pieceCard.classList.add('highlight-green');
+  })
+
+  pieceCard.addEventListener('mouseout', () => {
+    pieceCard.classList.remove('highlight-green');
+  })
+
+  pieceCard.addEventListener('click', () => {
+    deletePiece(piece);
+  });
+
+  repListing.append(pieceCard);
 }
 
 // RESET MAIN DISPLAY
@@ -190,28 +190,32 @@ addPieceForm.addEventListener('submit', (e) => {
       composerField.value = '';
       instrumentSelection.value = 'none-selected';
 
-      const confirmAddModal = document.createElement('div');
-      confirmAddModal.classList.add('confirm-delete-or-add-div');
-      const confirmAddMsg = document.createElement('p');
-      confirmAddMsg.textContent = 'Piece successfully added!';
-      const confirmAddBtn = document.createElement('button');
-      confirmAddBtn.textContent = 'OK';
-
-      confirmAddModal.append(confirmAddMsg);
-      confirmAddModal.append(confirmAddBtn);
-
-      const backdrop = createBackdrop();
-
-      repListing.append(confirmAddModal);
-
-      confirmAddBtn.addEventListener('click', () => {
-        backdrop.remove();
-        confirmAddModal.remove();
-        backToMain('Added', data);
-      })
-
+      displayConfirmAddModal(data);
     })
 });
+
+// DISPLAY CONFIRM ADD MODAL
+function displayConfirmAddModal(addedPiece) {
+  const confirmAddModal = document.createElement('div');
+  confirmAddModal.classList.add('confirm-delete-or-add-div');
+  const confirmAddMsg = document.createElement('p');
+  confirmAddMsg.textContent = 'Piece successfully added!';
+  const confirmAddBtn = document.createElement('button');
+  confirmAddBtn.textContent = 'OK';
+
+  confirmAddModal.append(confirmAddMsg);
+  confirmAddModal.append(confirmAddBtn);
+
+  const backdrop = createBackdrop();
+
+  repListing.append(confirmAddModal);
+
+  confirmAddBtn.addEventListener('click', () => {
+    backdrop.remove();
+    confirmAddModal.remove();
+    backToMain('Added', addedPiece);
+  })
+}
 
 // DELETE A PIECE
 const deletePiece = (piece) => {

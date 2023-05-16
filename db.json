@@ -49,22 +49,10 @@
       "id": 13
     },
     {
-      "composer": "Rachmaninoff",
-      "title": "Sonata op 19",
-      "instrument": "cello",
-      "id": 14
-    },
-    {
       "composer": "Barber",
       "title": "Sure On This Shining Night",
       "instrument": "voice",
       "id": 15
-    },
-    {
-      "composer": "Hindemith",
-      "title": "Sonata op 11 no 4",
-      "instrument": "viola",
-      "id": 16
     },
     {
       "composer": "Clarke",
@@ -89,6 +77,18 @@
       "title": "Sonata in A major",
       "instrument": "violin",
       "id": 20
+    },
+    {
+      "composer": "Gillingham",
+      "title": "Sonata \"Tempest\"",
+      "instrument": "trumpet",
+      "id": 21
+    },
+    {
+      "composer": "Hindemith",
+      "title": "Sonata op 11 no 4",
+      "instrument": "viola",
+      "id": 22
     }
   ]
 }
