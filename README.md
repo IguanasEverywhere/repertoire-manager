@@ -4,7 +4,7 @@ Repertoire Manager is a web application that allows musicians (particularly coll
 
 ## Installation Instructions
 
-Repertoire Manager is not currently live on the web. The backend is stored and run using in a local file called db.json . Recommended 'installation' instructions are:
+Repertoire Manager is not currently live on the web. The backend is stored and run using a local file called db.json . Recommended 'installation' instructions are:
 * Fork and Clone this Repo
 * Install JSON-Server
 * Within the home directory of the project, run json-server --watch db.json
