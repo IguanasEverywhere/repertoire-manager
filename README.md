@@ -24,7 +24,7 @@ Interacting with Repertoire Manager, users can:
 ![](https://github.com/IguanasEverywhere/repertoire-manager/blob/main/gifs/demonstrationGif.gif)
 
 ## Roadmap for Future Plans
-Currently, Repertoire Manger is built to store repertoire data on a local host server. A potential improvement for the future would be for the data to be stored on a remote server. Along with particular user account sign-ups, this would provide the ability for different musicians to store distinct repertoire lists and access them on the web from any location. Other possible improvements could be made by allowing the user to edit pieces in the database, as well as allowing for detailed input/search parameters for pieces.
+Currently, Repertoire Manger is built to store repertoire data on a local host server. A potential improvement for the future would be for the data to be stored on a remote server. Along with particular user account sign-ups, this would provide the ability for different musicians to store distinct repertoire lists and access them on the web from any location. Other possible improvements could be: allowing the user to edit pieces in the database, and/or allowing for adding some other input/search parameters for pieces (dates performer or opus numbers, for example).
 
 ## Author
 Scott Schwab, 2023
