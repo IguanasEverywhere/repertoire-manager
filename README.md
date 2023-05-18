@@ -24,7 +24,7 @@ Interacting with Repertoire Manager, users can:
 ![](https://github.com/IguanasEverywhere/repertoire-manager/blob/main/gifs/demonstrationGif.gif)
 
 ## Roadmap for Future Plans
-Currently, Repertoire Manger is built to store repertoire data on a local host server. A potential improvement for the future would be for the data to be stored on a remote server. Other possibilities includes allowing for account sign-ups, providing the ability for different musicians to store distinct repertoire lists and access them on the web from any location.
+Currently, Repertoire Manger is built to store repertoire data on a local host server. A potential improvement for the future would be for the data to be stored on a remote server. Other possibilities include allowing for account sign-ups, providing the ability for different musicians to store distinct repertoire lists and access them on the web from any location.
 
 ## Author
 Scott Schwab, 2023
